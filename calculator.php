@@ -7,19 +7,15 @@
 </head>
 <body>
 
-<form method="post">
-    Number 1: <input type="number" name="num1" required><br>
-    Number 2: <input type="number" name="num2" required><br>
-    <input type="submit" value="Submit">
-</form>
-
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $num1 = $_POST['num1'];
-    $num2 = $_POST['num2'];
+if (isset($_GET['num1']) && isset($_GET['num2'])) {
+    $num1 = $_GET['num1'];
+    $num2 = $_GET['num2'];
 
     echo 'You entered: ' . $num1 . ' and ' . $num2 . '<br>';
     echo 'Their Sum is: ' . ($num1 + $num2) . '<br>';
+} else {
+    echo 'Please provide num1 and num2 as URL parameters. Example: calculator.php?num1=5&num2=3';
 }
 ?>    
 
