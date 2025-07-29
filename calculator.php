@@ -12,8 +12,12 @@ if (isset($_GET['num1']) && isset($_GET['num2'])) {
     $num1 = $_GET['num1'];
     $num2 = $_GET['num2'];
 
-    echo 'You entered: ' . $num1 . ' and ' . $num2 . '<br>';
-    echo 'Their Sum is: ' . ($num1 + $num2) . '<br>';
+    if (is_numeric($num1) && is_numeric($num2)) {
+        echo 'You entered: ' . $num1 . ' and ' . $num2 . '<br>';
+        echo 'Their Sum is: ' . ($num1 + $num2) . '<br>';
+    } else {
+        echo 'Error: Both num1 and num2 must be numbers.';
+    }
 } else {
     echo 'Please provide num1 and num2 as URL parameters. Example: calculator.php?num1=5&num2=3';
 }
